@@ -228,7 +228,6 @@
     </dependencies>
 
     <build>
-        <finalName>dubbo-monitor</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

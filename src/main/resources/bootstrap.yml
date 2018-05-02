@@ -14,7 +14,7 @@
 # limitations under the License.
 server:
   port: 8080
-  contextPath: /dubbo-monitor
+  contextPath: /dubbo-monitor-bootable
 dubbo:
   application:
     name: dubbo-monitor
