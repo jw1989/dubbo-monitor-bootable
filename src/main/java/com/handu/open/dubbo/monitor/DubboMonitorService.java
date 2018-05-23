@@ -61,6 +61,7 @@ public class DubboMonitorService implements MonitorService {
 
     private BlockingQueue<URL> queue;
 
+    @SuppressWarnings("unused")
     @Autowired
     private RegistryContainer registryContainer;
 
@@ -202,6 +203,7 @@ public class DubboMonitorService implements MonitorService {
      * @param dubboInvoke
      * @return
      */
+    @SuppressWarnings("rawtypes")
     public Map<String, List> countDubboInvokeTopTen(DubboInvoke dubboInvoke) {
         Map<String, List> result = Maps.newHashMap();
         result.put("success", dao.getList(CLASSNAME, "countDubboInvokeSuccessTopTen", dubboInvoke));

@@ -109,6 +109,7 @@ public class ApplicationsController {
         return "application/consumers";
     }
 
+    @SuppressWarnings("unused")
     @RequestMapping(value = "dependencies", method = RequestMethod.GET)
     public String dependencies(@RequestParam String application, @RequestParam(required = false) boolean reverse, Model model) {
         List<String> rows = new ArrayList<String>();

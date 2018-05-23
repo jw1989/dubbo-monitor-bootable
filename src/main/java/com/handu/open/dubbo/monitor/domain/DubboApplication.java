@@ -23,6 +23,7 @@ import java.io.Serializable;
  * @author Zhiguo.Chen <me@chenzhiguo.cn>
  *         Created on 15/6/27.
  */
+@SuppressWarnings("serial")
 public class DubboApplication implements Serializable {
 
     private String name;

@@ -22,6 +22,7 @@ import java.io.Serializable;
  *
  * @author Jinkai.Ma
  */
+@SuppressWarnings("serial")
 public class DubboService implements Serializable {
 
     private String name;

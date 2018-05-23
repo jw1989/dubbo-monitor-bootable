@@ -191,6 +191,7 @@ public class Dao extends SqlSessionDaoSupport {
      * @param sql SQL语句
      * @return List<Map>
      */
+    @SuppressWarnings("rawtypes")
     public List<Map> querySql(String sql) {
         List<Map> list = Lists.newArrayList();
         try {

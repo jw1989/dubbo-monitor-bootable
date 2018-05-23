@@ -92,6 +92,7 @@ public class CommonResponse extends HashMap<String, Object> {
      * 向通用应答内设置一项数据对象
      * @param data
      */
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void setData(Object data) {
         Collection collection;
         if (!containsKey("data") || get("data") == null) {
@@ -107,6 +108,7 @@ public class CommonResponse extends HashMap<String, Object> {
      * 向通用应答内设置一个集合对象
      * @param collection
      */
+    @SuppressWarnings("rawtypes")
     public void setData(Collection collection) {
         this.put("data", collection);
     }

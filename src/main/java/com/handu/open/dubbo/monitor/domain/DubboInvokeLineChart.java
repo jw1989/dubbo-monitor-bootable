@@ -24,6 +24,7 @@ import java.util.List;
  * @author Zhiguo.Chen <me@chenzhiguo.cn>
  *         Created on 15/6/30.
  */
+@SuppressWarnings("serial")
 public class DubboInvokeLineChart implements Serializable {
 
     private String method;
