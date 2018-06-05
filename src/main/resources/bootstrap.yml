@@ -14,8 +14,7 @@
 # limitations under the License.
 server:
   port: 8080
-  servlet:
-    contextPath: /dubbo-monitor-bootable
+  contextPath: /dubbo-monitor-bootable
 dubbo:
   application:
     name: dubbo-monitor
@@ -34,3 +33,6 @@ db:
 manager:
   username: admin
   password: admin
+management:
+  security:
+    enabled: false

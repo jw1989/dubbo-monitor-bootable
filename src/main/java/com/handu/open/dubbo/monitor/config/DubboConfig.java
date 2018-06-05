@@ -30,7 +30,6 @@ import com.alibaba.dubbo.config.spring.AnnotationBean;
  *
  * @author Jinkai.Ma
  */
-@SuppressWarnings("deprecation")
 @Configuration
 public class DubboConfig {
 
@@ -43,6 +42,7 @@ public class DubboConfig {
     private Environment env;
 
     @Bean
+    @SuppressWarnings("deprecation")
     public static AnnotationBean annotationBean() {
         AnnotationBean annotationBean = new AnnotationBean();
         annotationBean.setPackage("com.handu.open.dubbo.monitor");
