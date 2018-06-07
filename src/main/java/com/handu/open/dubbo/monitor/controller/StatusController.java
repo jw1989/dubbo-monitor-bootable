@@ -15,18 +15,20 @@
  */
 package com.handu.open.dubbo.monitor.controller;
 
-import com.alibaba.dubbo.common.extension.ExtensionLoader;
-import com.alibaba.dubbo.common.status.Status;
-import com.alibaba.dubbo.common.status.StatusChecker;
-import com.handu.open.dubbo.monitor.domain.DubboStatus;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+import com.alibaba.dubbo.common.status.Status;
+import com.alibaba.dubbo.common.status.StatusChecker;
+import com.alibaba.dubbo.config.spring.status.SpringStatusChecker;
+import com.handu.open.dubbo.monitor.domain.DubboStatus;
 
 /**
  * StatusController
@@ -36,7 +38,7 @@ import java.util.Set;
 @Controller
 @RequestMapping("/status")
 public class StatusController {
-
+    
     @RequestMapping(method = RequestMethod.GET)
     public String status(Model model) {
         List<DubboStatus> rows = new ArrayList<DubboStatus>();
@@ -44,7 +46,10 @@ public class StatusController {
         DubboStatus dubboStatus;
         for (String name : names) {
             StatusChecker checker = ExtensionLoader.getExtensionLoader(StatusChecker.class).getExtension(name);
-            Status status = checker.check();
+            Status status = new Status(Status.Level.ERROR);
+            if (!(checker instanceof SpringStatusChecker)) {
+                status = checker.check();
+            }
             if (status != null && !Status.Level.UNKNOWN.equals(status.getLevel())) {
                 dubboStatus = new DubboStatus();
                 dubboStatus.setName(name);

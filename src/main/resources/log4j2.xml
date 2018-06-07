@@ -6,12 +6,13 @@
         <Property name="ROOT">/logs</Property>
         <Property name="LEVEL">%5p</Property>
         <Property name="FORMATTER">
-            %d{yyyy-MM-dd HH:mm:ss.SSS} [${LEVEL}] [${hostName}] [%t] %logger{1.}:%L - [${APP}] %m%n%ex
+            %d{yyyy-MM-dd HH:mm:ss.SSS} [${LEVEL}] [${hostName}] %logger{1.}:%L - %m%n%ex
         </Property>
     </Properties>
 
     <appenders>
         <Console name="console" target="SYSTEM_OUT">
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY" />
             <PatternLayout pattern="${FORMATTER}" />
         </Console>
         <RollingFile name="file" fileName="${ROOT}/app/${APP}.log" append="true" filePattern="${ROOT}/gzed/${APP}.%d{yyyy-MM-dd}.gz">

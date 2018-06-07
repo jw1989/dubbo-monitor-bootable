@@ -109,11 +109,11 @@ public class ApplicationsController {
         return "application/consumers";
     }
 
-    @SuppressWarnings("unused")
     @RequestMapping(value = "dependencies", method = RequestMethod.GET)
     public String dependencies(@RequestParam String application, @RequestParam(required = false) boolean reverse, Model model) {
         List<String> rows = new ArrayList<String>();
 
+        @SuppressWarnings("unused")
         Set<String> directly = registryContainer.getDependencies(application, reverse);
         Set<String> indirectly = new HashSet<String>();
         appendDependency(rows, reverse, application, 0, new HashSet<String>(), indirectly);

@@ -15,6 +15,8 @@
  */
 package com.handu.open.dubbo.monitor.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.google.common.base.Preconditions;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.BeansException;
@@ -26,9 +28,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.alibaba.druid.pool.DruidDataSource;
-import com.google.common.base.Preconditions;
 
 /**
  * MyBatis配置文件

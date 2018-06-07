@@ -56,9 +56,9 @@ public class IndexController {
         return "index";
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @ResponseBody
     @RequestMapping(value = "loadTopData")
-    @SuppressWarnings({ "rawtypes", "unchecked" })
     public CommonResponse loadTopDate(@ModelAttribute DubboInvoke dubboInvoke) {
         CommonResponse commonResponse = CommonResponse.createCommonResponse();
         List<DubboInvokeLineChart> dubboInvokeLineChartList = new ArrayList<DubboInvokeLineChart>();
